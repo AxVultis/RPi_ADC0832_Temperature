@@ -104,7 +104,7 @@ def loop():
     while True:
         res0 = getResult(0)
         res1 = getResult(1)
-        print 'res0 = %d, res1 = %d' % (res0, res1)
+        print('res0 = %d, res1 = %d' % (res0, res1))
         time.sleep(0.4)
 
 

@@ -17,10 +17,8 @@ def loop():
         Rt = 10000 * Vr / (5 - Vr)
         # print Rt
         temp = 1 / (((math.log(Rt / 10000)) / 3950) + (1 / (273.15 + 25)))
-        print
-        temp
         temp = temp - 273.15
-        print 'temperature = %.2f C' % temp
+        print('temperature = %.2f C' % temp)
         time.sleep(0.2)
 
 
@@ -30,4 +28,4 @@ if __name__ == '__main__':
         loop()
     except KeyboardInterrupt:
         ADC0832.destroy()
-        print 'The end !'
+        print('The end !')
