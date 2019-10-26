@@ -10,13 +10,10 @@ def init():
 
 def loop():
     while True:
-        analogVal = ADC0832.getResult()
-        # print analogVal
-        Vr = 5 * float(analogVal) / 255
-        # print Vr
-        Rt = 10000 * Vr / (5 - Vr)
-        # print Rt
-        temp = 1 / (((math.log(Rt / 10000)) / 3950) + (1 / (273.15 + 25)))
+        analog_val = ADC0832.get_result()
+        voltage = 5 * float(analog_val) / 255
+        rt = 10000 * voltage / (5 - voltage)
+        temp = 1 / (((math.log(rt / 10000)) / 3950) + (1 / (273.15 + 25)))
         temp = temp - 273.15
         print('temperature = %.2f C' % temp)
         time.sleep(0.2)

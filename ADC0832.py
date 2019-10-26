@@ -10,9 +10,9 @@
 # *'chn' should be 0 or 1 represent for ch0 or ch1 on ADC0832
 #
 #           ADC0832				  Pi
-#           CS ---------------- Pin 11
-#           CLK --------------- Pin 12
-#           IO ---------------- Pin 13
+#           CS ---------------- Pin 11 (GPIO17)
+#           CLK --------------- Pin 12 (GPIO18)
+#           IO ---------------- Pin 13 (GPIO27)
 
 #           VCC ----------------- 3.3V
 #           GND ------------------ GND
@@ -43,7 +43,7 @@ def destroy():
 
 
 # using channel = 0 as default for backwards compatibility
-def getResult(channel=0):  # Get ADC result, input channal
+def get_result(channel=0):  # Get ADC result, input channal
     GPIO.setup(ADC_DIO, GPIO.OUT)
     GPIO.output(ADC_CS, 0)
 
@@ -97,13 +97,13 @@ def getResult(channel=0):  # Get ADC result, input channal
 
 
 def getResult1():
-    return getResult(1)
+    return get_result(1)
 
 
 def loop():
     while True:
-        res0 = getResult(0)
-        res1 = getResult(1)
+        res0 = get_result(0)
+        res1 = get_result(1)
         print('res0 = %d, res1 = %d' % (res0, res1))
         time.sleep(0.4)
 
